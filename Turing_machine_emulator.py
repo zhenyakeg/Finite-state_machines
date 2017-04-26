@@ -30,4 +30,28 @@ def emulate_turing_machine(input_file, rules):
         if turing_line[i] != 'B':
             result.append(turing_line[i])
     return result
-print(' '.join(emulate_turing_machine('input.txt', 'move_first_letter_to_the_end.txt')))
+
+def generate_rule_for_deleting():
+    output_file = open('delete_if_first==last_rule.txt', 'w', encoding='UTF-8')
+    alphabet = ['a', 'b', 'c', 'd','e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
+                'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    for letter1 in alphabet + ['B']:
+        print('q1', letter1, 'q' + letter1, letter1, 1, file=output_file)
+        if letter1 == 'B':
+            print('q1', letter1, 'STOP', 'B', 0, file=output_file)
+        for letter2 in alphabet:
+            print('q' + letter2, letter1, 'q' + letter2, letter1, 1, file=output_file)
+            if letter1 == 'B':
+                print('q' + letter2, letter1, 'q' + letter2 + letter2, 'B', -1, file=output_file)
+            if letter2 == letter1:
+                print('q' + letter2 + letter2, letter1, 'qdel', 'B', -1, file=output_file)
+            else:
+                print('q' + letter2 + letter2, letter1, 'STOP', letter1, 0, file=output_file)
+        if letter1 != 'B':
+            print('qdel', letter1, 'qdel', 'B', -1, file=output_file)
+        else:
+            print('qdel', letter1, 'STOP', 'B', 0, file=output_file)
+    output_file.close()
+
+generate_rule_for_deleting()
+print(' '.join(emulate_turing_machine('input.txt', 'delete_if_first==last_rule.txt')))

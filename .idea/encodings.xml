@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/binary_number_times_two_rule.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/delete_if_first==last_rule.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/input.txt" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/move_first_letter_to_the_end.txt" charset="UTF-8" />
   </component>

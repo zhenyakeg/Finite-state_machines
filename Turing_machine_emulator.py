@@ -30,4 +30,4 @@ def emulate_turing_machine(input_file, rules):
         if turing_line[i] != 'B':
             result.append(turing_line[i])
     return result
-print(' '.join(emulate_turing_machine('input.txt', 'binary_number_times_two_rule.txt')))
+print(' '.join(emulate_turing_machine('input.txt', 'move_first_letter_to_the_end.txt')))

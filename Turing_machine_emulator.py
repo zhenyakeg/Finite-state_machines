@@ -31,10 +31,11 @@ def emulate_turing_machine(input_file, rules):
             result.append(turing_line[i])
     return result
 
+
 def generate_rule_for_deleting():
-    output_file = open('delete_if_first==last_rule.txt', 'w', encoding='UTF-8')
-    alphabet = ['a', 'b', 'c', 'd','e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-                'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    output_file = open('delete_if_first==last_rule.txt', 'w',)
+    alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
+                'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     for letter1 in alphabet + ['B']:
         print('q1', letter1, 'q' + letter1, letter1, 1, file=output_file)
         if letter1 == 'B':
@@ -53,5 +54,4 @@ def generate_rule_for_deleting():
             print('qdel', letter1, 'STOP', 'B', 0, file=output_file)
     output_file.close()
 
-generate_rule_for_deleting()
 print(' '.join(emulate_turing_machine('input.txt', 'delete_if_first==last_rule.txt')))
